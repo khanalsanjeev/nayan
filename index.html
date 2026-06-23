@@ -3,354 +3,745 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nayan Pradhananga - Portfolio</title>
+    <title>Nayan Pradhananga | Chartered Accountant & Financial Strategist</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Premium Fonts for Corporate Gravitas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration for Custom Luxury Palette -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
                     },
                     colors: {
-                        primary: '#1a202c', // Dark slate for primary text/headings
-                        accent: '#3182ce', // Blue for accents
-                        lightBg: '#f7fafc', // Very light gray/blue for backgrounds
-                        cardBg: '#ffffff',
+                        obsidian: {
+                            50: '#f4f5f6',
+                            100: '#e9ebed',
+                            800: '#1e2530',
+                            900: '#0B0F17', // Deep luxury dark
+                            950: '#070A0F',
+                        },
+                        gold: {
+                            100: '#F5ECE1',
+                            200: '#EADBC9',
+                            300: '#DEC9B0',
+                            DEFAULT: '#C5A880', // Champagne Gold
+                            dark: '#A6865A',
+                            deep: '#785E3B'
+                        },
+                        corporate: {
+                            blue: '#1E3A8A',
+                            navy: '#0F172A',
+                        }
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 4px 30px rgba(197, 168, 128, 0.15)',
+                        'metallic': '0 10px 40px -10px rgba(7, 10, 15, 0.3)',
+                    },
+                    animation: {
+                        'gold-shimmer': 'shimmer 3s ease-in-out infinite',
+                        'float-gentle': 'float 8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        shimmer: {
+                            '0%, 100%': { opacity: '0.8' },
+                            '50%': { opacity: '1', filter: 'brightness(1.2)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        
-        /* Custom blob shape for header image similar to reference */
-        .blob-shape {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: morph 8s ease-in-out infinite;
-            background-color: #e2e8f0; /* Fallback color */
-            overflow: hidden;
+        body {
+            background-color: #070A0F;
+            color: #E2E8F0;
+            background-image: radial-gradient(rgba(197, 168, 128, 0.04) 1px, transparent 1px);
+            background-size: 32px 32px;
         }
 
-        @keyframes morph {
-            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        /* Glassmorphism custom components */
+        .luxury-glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(197, 168, 128, 0.12);
         }
 
-        /* Subtle background pattern */
-        .bg-pattern {
-            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-            background-size: 20px 20px;
+        .gold-border-gradient {
+            border-image: linear-gradient(135deg, #C5A880 0%, #070A0F 100%) 1;
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #F5ECE1 0%, #C5A880 50%, #A6865A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gold-subtle {
+            background: linear-gradient(135deg, #DEC9B0 0%, #A6865A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hidden scrollbars but styled scrollbar for quality */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070A0F; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #252e3d; 
+            border: 2px solid #070A0F;
+            border-radius: 6px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A880; 
         }
     </style>
 </head>
-<body class="bg-blue-50 text-gray-800 antialiased selection:bg-accent selection:text-white">
+<body class="font-sans text-slate-300 antialiased selection:bg-gold selection:text-obsidian-950 relative overflow-x-hidden">
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-white min-h-screen shadow-xl rounded-3xl my-8 relative overflow-hidden">
-        
-        <!-- Decorative background elements -->
-        <div class="absolute top-0 left-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div class="absolute top-0 right-0 w-64 h-64 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+    <!-- High-end Ambient Background Orbs -->
+    <div class="fixed top-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-gold/5 blur-[150px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] left-[-15%] w-[50%] h-[50%] rounded-full bg-blue-900/10 blur-[180px] pointer-events-none z-0"></div>
 
-        <!-- Navigation -->
-        <nav class="relative flex items-center justify-between pt-6 pb-4 z-10">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-primary text-white rounded-lg flex items-center justify-center font-bold text-xl">
-                    NP
-                </div>
-                <span class="font-bold text-xl tracking-tight text-primary">Nayan</span>
-            </div>
-            
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-                <a href="#about" class="hover:text-primary transition-colors">About</a>
-                <a href="#expertise" class="hover:text-primary transition-colors">Expertise</a>
-                <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
-                <a href="#education" class="hover:text-primary transition-colors">Education</a>
-            </div>
-
-            <div class="flex space-x-4 text-gray-400">
-                <a href="https://www.linkedin.com/in/nayan-pradhananga-606487a1/" target="_blank" class="hover:text-accent transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="mailto:navanpng@gmail.com" class="hover:text-accent transition-colors"><i class="fas fa-envelope text-xl"></i></a>
-            </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <section id="about" class="relative pt-8 pb-16 lg:pt-12 lg:pb-24 z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
-            
-            <!-- Hero Text -->
-            <div class="w-full lg:w-1/2 space-y-5 text-center lg:text-left">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-                    Hey, I'm a <br>
-                    <span class="text-accent">Finance Professional</span>.
-                </h1>
+    <!-- Navigation (Prestige Glass) -->
+    <nav class="fixed w-full top-0 z-50 transition-all duration-300 border-b border-gold/10 bg-obsidian-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                <!-- Logo with Corporate Monogram -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gold via-gold-dark to-obsidian-900 text-obsidian-950 flex items-center justify-center font-serif font-extrabold text-xl tracking-tight shadow-gold-glow group-hover:scale-105 transition-transform duration-300">
+                        NP
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-bold text-lg tracking-wide text-white leading-tight group-hover:text-gold transition-colors">N. Pradhananga</span>
+                        <span class="text-[10px] tracking-widest text-gold uppercase font-semibold">Chartered Accountant</span>
+                    </div>
+                </a>
                 
-                <p class="text-gray-600 text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
-                    Qualified Chartered Accountant with experience as a Financial Planning and Analysis Officer and Audit Associate. I seek to leverage my academic knowledge and work experience to effectively contribute to organizational objectives and add value in all engagements.
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#about" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-gold transition-colors">About</a>
+                    <a href="#governance" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-gold transition-colors">Strategic Advantage</a>
+                    <a href="#expertise" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-gold transition-colors">Expertise</a>
+                    <a href="#experience" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-gold transition-colors">Track Record</a>
+                    <a href="#simulator" class="text-xs font-bold uppercase tracking-wider text-gold hover:text-white transition-colors bg-gold/10 px-3 py-1 rounded-full border border-gold/20">FP&A Tool</a>
+                </div>
+
+                <!-- Professional Network & Contact -->
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.linkedin.com/in/nayan-pradhananga-606487a1/" target="_blank" class="w-10 h-10 rounded-full luxury-glass flex items-center justify-center text-slate-300 hover:text-gold hover:border-gold/50 transition-all" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in text-base"></i>
+                    </a>
+                    <a href="mailto:navanpng@gmail.com" class="hidden sm:inline-flex items-center justify-center px-6 py-3 text-xs font-bold uppercase tracking-widest text-obsidian-950 bg-gold hover:bg-white rounded-full transition-all duration-300 shadow-gold-glow font-sans hover:-translate-y-0.5">
+                        Initiate Advisory <i class="fas fa-paper-plane ml-2 text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Elite Hero Section -->
+    <main id="about" class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Executive Narrative -->
+                <div class="lg:col-span-7 space-y-8 text-left">
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full luxury-glass border border-gold/30 text-gold text-xs font-bold tracking-widest uppercase">
+                        <span class="relative flex h-2.5 w-2.5">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-gold-dark"></span>
+                        </span>
+                        Chartered Accountant & Strategic Advisor
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-normal text-white leading-tight">
+                        Driving Corporate Value Through <span class="font-bold text-gold-gradient block sm:inline">Financial Intelligence</span> & Governance.
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl font-light">
+                        Leveraging academic excellence in Accounting, Public Administration, and Law to manage high-stakes risk audits, optimize corporate financial architecture, and pilot multi-million dollar business forecasts with total integrity and razor-sharp compliance.
+                    </p>
+
+                    <!-- Core Corporate Indicators (Trust Builders) -->
+                    <div class="grid grid-cols-3 gap-6 pt-6 border-t border-gold/10">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-gold">15+</div>
+                            <div class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold mt-1">Conglomerates Audited</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-gold">SAP / Oracle</div>
+                            <div class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold mt-1">ERP Implementation</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-serif font-bold text-gold">Triple</div>
+                            <div class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold mt-1">Disciplinary Domain</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Actions -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4 pt-4">
+                        <a href="mailto:navanpng@gmail.com" class="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-4 bg-gold text-obsidian-950 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-white transition-all duration-300 shadow-gold-glow hover:-translate-y-1">
+                            Secure Engagement <i class="fas fa-chevron-right text-[10px]"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/nayan-pradhananga-606487a1/" target="_blank" class="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-4 luxury-glass text-white border border-gold/20 rounded-full font-bold uppercase tracking-widest text-xs hover:border-gold/80 transition-all duration-300 hover:-translate-y-1">
+                            <i class="fab fa-linkedin text-gold text-sm"></i> Executive Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Professional Portrait Canvas (The Executive Presence) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative w-full max-w-sm mx-auto aspect-[4/5] rounded-2xl luxury-glass overflow-hidden shadow-metallic border-2 border-gold/30 p-2 animate-float-gentle">
+                        <img src="nayan.jpg" alt="Nayan Pradhananga" class="w-full h-full object-cover rounded-xl" onerror="this.src='https://placehold.co/800x1000/0b0f17/c5a880?text=CA+Nayan+P.'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent"></div>
+                        
+                        <!-- Elite Floating Identity Badge -->
+                        <div class="absolute bottom-6 left-6 right-6 luxury-glass p-4 rounded-xl border border-gold/30 flex items-center justify-between">
+                            <div>
+                                <h4 class="font-serif font-bold text-white text-sm">CA Nayan Pradhananga</h4>
+                                <p class="text-[10px] uppercase tracking-wider text-gold font-semibold">ICAI Member • MPA • LLB (c)</p>
+                            </div>
+                            <div class="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center border border-gold/30">
+                                <i class="fas fa-gavel text-gold text-xs"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- The CA Governance Triad Section -->
+    <section id="governance" class="py-24 border-y border-gold/10 bg-obsidian-900 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-gold font-bold tracking-widest uppercase text-xs mb-3 block">Strategic Architecture</span>
+                <h2 class="text-3xl sm:text-5xl font-serif text-white mb-6">The Governance Triad</h2>
+                <p class="text-slate-400 font-light text-base sm:text-lg">
+                    A rare integration of <strong class="text-white font-medium">Finance</strong>, <strong class="text-white font-medium">Administrative Policy</strong>, and <strong class="text-white font-medium">Corporate Jurisprudence</strong> creating the ultimate shield for corporate compliance and strategic scale.
                 </p>
+            </div>
 
-                <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-4">
-                    <a href="mailto:navanpng@gmail.com" class="bg-primary hover:bg-gray-800 text-white px-8 py-3 rounded-full font-medium transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
-                        <i class="fas fa-paper-plane"></i> Contact Me
-                    </a>
-                    <a href="https://www.linkedin.com/in/nayan-pradhananga-606487a1/" target="_blank" class="bg-blue-100 text-blue-700 hover:bg-blue-200 px-8 py-3 rounded-full font-medium transition-all flex items-center gap-2">
-                        <i class="fab fa-linkedin"></i> Connect
-                    </a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Strategic Pillar 1: CA -->
+                <div class="luxury-glass p-8 rounded-2xl border border-gold/15 relative group hover:border-gold/60 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-gold/10 to-transparent rounded-tr-2xl pointer-events-none"></div>
+                    <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/30 mb-8 group-hover:scale-105 transition-transform">
+                        <i class="fas fa-balance-scale text-xl"></i>
+                    </div>
+                    <span class="text-[10px] font-bold tracking-widest text-gold uppercase">Pillar I • Strategic Finance</span>
+                    <h3 class="text-2xl font-serif font-bold text-white mt-2 mb-4">Chartered Accountancy</h3>
+                    <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                        Qualified with the <strong class="text-gold font-semibold">Institute of Chartered Accountants of India (ICAI)</strong> in 2026. Mastering financial modeling, risk governance, audit assurance, international tax planning, and strategic treasury structures.
+                    </p>
+                    <div class="pt-4 border-t border-gold/10 flex items-center justify-between text-xs text-slate-500">
+                        <span>Institution: ICAI</span>
+                        <span class="text-gold font-bold">Credentialed: 2026</span>
+                    </div>
+                </div>
+
+                <!-- Strategic Pillar 2: MPA -->
+                <div class="luxury-glass p-8 rounded-2xl border border-gold/15 relative group hover:border-gold/60 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-gold/10 to-transparent rounded-tr-2xl pointer-events-none"></div>
+                    <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/30 mb-8 group-hover:scale-105 transition-transform">
+                        <i class="fas fa-landmark text-xl"></i>
+                    </div>
+                    <span class="text-[10px] font-bold tracking-widest text-gold uppercase">Pillar II • Public Policy</span>
+                    <h3 class="text-2xl font-serif font-bold text-white mt-2 mb-4">Master of Public Admin.</h3>
+                    <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                        Graduated with distinction from <strong class="text-gold font-semibold">Tribhuvan University (TU)</strong> in 2025. Specialized in administrative structures, strategic human resource leadership, public policy evaluation, and corporate governance.
+                    </p>
+                    <div class="pt-4 border-t border-gold/10 flex items-center justify-between text-xs text-slate-500">
+                        <span>Institution: TU (Central Campus)</span>
+                        <span class="text-gold font-bold">Completed: 2025</span>
+                    </div>
+                </div>
+
+                <!-- Strategic Pillar 3: LLB -->
+                <div class="luxury-glass p-8 rounded-2xl border border-gold/15 relative group hover:border-gold/60 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-gold/10 to-transparent rounded-tr-2xl pointer-events-none"></div>
+                    <div class="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold border border-gold/30 mb-8 group-hover:scale-105 transition-transform">
+                        <i class="fas fa-scroll text-xl"></i>
+                    </div>
+                    <span class="text-[10px] font-bold tracking-widest text-gold uppercase">Pillar III • Corporate Law</span>
+                    <h3 class="text-2xl font-serif font-bold text-white mt-2 mb-4">Bachelor of Laws (LLB)</h3>
+                    <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                        Currently reading law at <strong class="text-gold font-semibold">Tribhuvan University</strong>. Integrating corporate legislation, labor law, mercantile law, and contracts act directly into financial policy structure.
+                    </p>
+                    <div class="pt-4 border-t border-gold/10 flex items-center justify-between text-xs text-slate-500">
+                        <span>Institution: TU Law Department</span>
+                        <span class="text-gold font-bold">Status: Running</span>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Hero Image/Blob -->
-            <div class="w-full lg:w-1/2 flex justify-center relative">
-                <!-- Abstract pattern behind image -->
-                <div class="absolute -top-10 -left-10 w-32 h-32 bg-pattern opacity-50 hidden md:block"></div>
-                
-                <div class="relative w-72 h-72 md:w-96 md:h-96 blob-shape shadow-2xl bg-blue-100 flex items-center justify-center border-4 border-white">
-                     <img src="nayan.jpg" alt="Nayan Pradhananga" class="w-full h-full object-cover">
+    <!-- Strategic Expertise Section -->
+    <section id="expertise" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
+                <div class="max-w-2xl">
+                    <span class="text-gold font-bold tracking-widest uppercase text-xs mb-3 block">Financial Mastery</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif text-white">Areas of Core Competency</h2>
                 </div>
-            </div>
-        </section>
-
-        <!-- Expertise Section -->
-        <section id="expertise" class="py-20 z-10 relative border-t border-gray-100">
-            <div class="text-center mb-16">
-                <span class="text-xs font-bold tracking-widest text-gray-400 uppercase">My Skills</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">My Expertise</h2>
+                <p class="text-slate-400 font-light text-base sm:text-lg max-w-md lg:text-right">
+                    Translating regulatory complexities and operational data sets into sound financial policy and sustained capital stability.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                
-                <!-- Skill 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-12 h-12 bg-blue-50 text-accent rounded-xl flex items-center justify-center mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Skill Card 1 -->
+                <div class="luxury-glass p-10 rounded-2xl border border-gold/15 relative overflow-hidden group hover:bg-obsidian-900 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center text-gold mb-8">
                         <i class="fas fa-chart-line text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Financial Planning & Analysis</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Extensive experience in preparing financial statements, forecasts, and projections. Proficient in profitability reviews, sales vs. collection analysis, and budget preparation for various entities.
+                    <h3 class="text-xl font-serif font-bold text-white mb-4">Financial Planning & Analysis (FP&A)</h3>
+                    <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                        Pioneering precise forecasting models, regional market performance metrics, capital budget analysis, sales vs. collection reviews, and customized management information systems (MIS) for executive boards.
                     </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Budget Architecture</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Trend Analysis</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Landed Cost Models</span>
+                    </div>
                 </div>
 
-                <!-- Skill 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-search-dollar text-xl"></i>
+                <!-- Skill Card 2 -->
+                <div class="luxury-glass p-10 rounded-2xl border border-gold/15 relative overflow-hidden group hover:bg-obsidian-900 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center text-gold mb-8">
+                        <i class="fas fa-fingerprint text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Audit & Compliance</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Handled internal, statutory, and special assignments across various sectors (manufacturing, construction, NGOs). Experienced in NFRS implementation, stock audits, and ensuring compliance with accounting standards.
+                    <h3 class="text-xl font-serif font-bold text-white mb-4">Audits, Taxation & Regulatory Compliance</h3>
+                    <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                        Spearheading rigorous corporate assurance. Veteran of internal controls design, statutory audits, and implementation of high-stakes standard compliance architectures including Nepal Financial Reporting Standards (NFRS).
                     </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">NFRS Integration</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Risk Consulting</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Tax Optimization</span>
+                    </div>
                 </div>
 
-                <!-- Skill 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-desktop text-xl"></i>
+                <!-- Skill Card 3 -->
+                <div class="luxury-glass p-10 rounded-2xl border border-gold/15 relative overflow-hidden group hover:bg-obsidian-900 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center text-gold mb-8">
+                        <i class="fas fa-cubes text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">ERP Systems</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Practical experience working with enterprise resource planning software to manage financial data and operations. Proficient in using <strong>SAP ERP</strong> and <strong>ORACLE NetSuite</strong>.
+                    <h3 class="text-xl font-serif font-bold text-white mb-4">Enterprise System Implementations</h3>
+                    <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                        Hands-on architecture in major Enterprise Resource Planning solutions. Direct experience managing accounts charts and automation workflows in high-volume manufacturing settings.
                     </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">SAP ERP</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Oracle NetSuite</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Digital Controls</span>
+                    </div>
                 </div>
 
-                <!-- Skill 4 -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-file-invoice text-xl"></i>
+                <!-- Skill Card 4 -->
+                <div class="luxury-glass p-10 rounded-2xl border border-gold/15 relative overflow-hidden group hover:bg-obsidian-900 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-gold"></div>
+                    <div class="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center text-gold mb-8">
+                        <i class="fas fa-hand-holding-usd text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Financial Reporting & Costing</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Skilled in calculating interest, landed costs, and conducting trend analysis. Experienced in reviewing cost sheets and preparing Management Information Systems (MIS) reports for informed decision-making.
+                    <h3 class="text-xl font-serif font-bold text-white mb-4">Cost Control & Profitability Steering</h3>
+                    <p class="text-slate-400 font-light text-sm leading-relaxed mb-6">
+                        Formulating optimal raw-material pricing, interest, and overhead allocation models. Empowering corporate sales groups to craft sustainable and scalable commercial incentive structures.
                     </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Interest Hedging</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Cost-Volume Profit</span>
+                        <span class="text-[10px] font-bold tracking-widest uppercase bg-obsidian-950 px-2.5 py-1.5 rounded text-gold/80 border border-gold/10">Commercial Audits</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Timeline Section -->
+    <section id="experience" class="py-24 bg-obsidian-900 border-y border-gold/10 relative">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-24">
+                <span class="text-gold font-bold tracking-widest uppercase text-xs mb-3 block">Corporate Record</span>
+                <h2 class="text-3xl sm:text-5xl font-serif text-white">Professional Trajectory</h2>
+                <p class="text-slate-400 font-light text-base sm:text-lg max-w-2xl mx-auto mt-4">
+                    Extensive experience managing internal metrics and reporting frameworks directly to C-suite and executive leadership.
+                </p>
+            </div>
+
+            <!-- Fully Centered Grid-Based Responsive Timeline -->
+            <div class="relative">
+                
+                <!-- Vertical timeline line - precisely centered in desktop, aligned left on mobile -->
+                <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-2 bottom-2 w-0.5 bg-gradient-to-b from-gold/10 via-gold/30 to-gold/10 pointer-events-none"></div>
+                
+                <div class="space-y-16">
+                    
+                    <!-- Position 1 (Left on Desktop) -->
+                    <div class="relative pl-10 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-start">
+                        <!-- Precise Dot indicator -->
+                        <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-obsidian-950 border-2 border-gold rounded-full top-8 shadow-gold-glow z-10"></div>
+                        
+                        <!-- Content Column -->
+                        <div class="luxury-glass p-8 rounded-2xl border border-gold/15 hover:border-gold/50 transition-all text-left shadow-md hover:shadow-xl hover:-translate-y-1">
+                            <span class="inline-block px-3 py-1 bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">Jun 2023 - Aug 2024 • 14 Months</span>
+                            <h3 class="text-2xl font-serif font-bold text-white mb-1">Financial Planning & Analysis Officer</h3>
+                            <p class="text-gold/80 font-medium text-sm mb-4 uppercase tracking-wider">Panchakanya Group, Lalitpur</p>
+                            <p class="text-slate-400 font-light text-sm leading-relaxed mb-4">
+                                Direct reporting channel to the Group CFO. Oversaw financial modeling, budgeting, and performance analytics for major manufacturing units (Panchakanya Steels, Wires, Plastics, Premix) and corporate service investments (Bhetayo Inc.).
+                            </p>
+                            <ul class="text-sm text-slate-400 space-y-2 font-light">
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gold mt-1 text-xs"></i> Modeled monthly consolidated profitability metrics and sales-to-collection channels.</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gold mt-1 text-xs"></i> Developed area-specific sales KPIs and structured loyalty/TOD commercial structures.</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gold mt-1 text-xs"></i> Evaluated high-stakes pricing sheets and interest allocations.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Empty Column for desktop spacing -->
+                        <div class="hidden md:block"></div>
+                    </div>
+
+                    <!-- Position 2 (Right on Desktop) -->
+                    <div class="relative pl-10 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-start">
+                        <!-- Precise Dot indicator -->
+                        <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-obsidian-950 border-2 border-gold rounded-full top-8 shadow-gold-glow z-10"></div>
+                        
+                        <!-- Empty Column for desktop spacing -->
+                        <div class="hidden md:block"></div>
+                        
+                        <!-- Content Column -->
+                        <div class="luxury-glass p-8 rounded-2xl border border-gold/15 hover:border-gold/50 transition-all text-left shadow-md hover:shadow-xl hover:-translate-y-1">
+                            <span class="inline-block px-3 py-1 bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">Nov 2018 - Feb 2020 • 16 Months</span>
+                            <h3 class="text-2xl font-serif font-bold text-white mb-1">Audit Associate</h3>
+                            <p class="text-gold/80 font-medium text-sm mb-4 uppercase tracking-wider">PKF TR Upadhya & Co., Kathmandu</p>
+                            <p class="text-slate-400 font-light text-sm leading-relaxed mb-4">
+                                Conducted complex external and special investigative audits for some of the region's largest conglomerates, governmental platforms, and non-profits.
+                            </p>
+                            <ul class="text-sm text-slate-400 space-y-2 font-light">
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gold mt-1 text-xs"></i> Conducted Stock Audits for Asian Paints and structured local tax filings.</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gold mt-1 text-xs"></i> Spearheaded strategic asset investigations for Unicef.</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gold mt-1 text-xs"></i> Authored comprehensive NFRS-gap analysis models for SEBON.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Position 3 (Left on Desktop) -->
+                    <div class="relative pl-10 md:pl-0 md:grid md:grid-cols-2 md:gap-16 items-start">
+                        <!-- Precise Dot indicator -->
+                        <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-obsidian-950 border-2 border-gold rounded-full top-8 shadow-gold-glow z-10"></div>
+                        
+                        <!-- Content Column -->
+                        <div class="luxury-glass p-8 rounded-2xl border border-gold/15 hover:border-gold/50 transition-all text-left shadow-md hover:shadow-xl hover:-translate-y-1">
+                            <span class="inline-block px-3 py-1 bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">May 2013 - May 2016 • 36 Months</span>
+                            <h3 class="text-2xl font-serif font-bold text-white mb-1">Articled Assistant</h3>
+                            <p class="text-gold/80 font-medium text-sm mb-4 uppercase tracking-wider">N. Kochhar & Co., New Delhi</p>
+                            <p class="text-slate-400 font-light text-sm leading-relaxed mb-4">
+                                Executed deep-level audit internships in India, performing risk evaluations, cost analyses, and internal governance evaluations for multi-national giants.
+                            </p>
+                            <ul class="text-sm text-slate-400 space-y-2 font-light">
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gold mt-1 text-xs"></i> Deployed inside DLF Group on behalf of KPMG's Risk Consulting Division.</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gold mt-1 text-xs"></i> Led special marketing and dealer audits for Hero Motocorp Ltd.</li>
+                                <li class="flex items-start gap-2"><i class="fas fa-check-circle text-gold mt-1 text-xs"></i> Managed process controls and cost reviews for Valvoline Cummins.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Empty Column for desktop spacing -->
+                        <div class="hidden md:block"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Capital Optimizer Section -->
+    <section id="simulator" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                
+                <!-- Left Narrative -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-gold font-bold tracking-widest uppercase text-xs block">Live Strategic Advisory</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif text-white">Financial Capital Advisor Tool</h2>
+                    <p class="text-slate-400 font-light leading-relaxed text-sm sm:text-base">
+                        This interactive calculator operates on strategic treasury formulas. Adjust the corporate variables to experience a real-time, automated high-level financial risk audit and optimized corporate recommendation framework.
+                    </p>
+                    <div class="p-4 bg-gold/5 rounded-xl border border-gold/10">
+                        <p class="text-xs text-gold font-semibold flex items-center gap-2">
+                            <i class="fas fa-info-circle"></i> FP&A Demonstration Environment
+                        </p>
+                        <p class="text-xs text-slate-500 mt-1">
+                            Adjust the sliders on the right to simulate live cost adjustments, optimal working capital structures, and tax exposure reviews.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Application -->
+                <div class="lg:col-span-7 luxury-glass p-8 rounded-3xl border border-gold/25 shadow-metallic">
+                    <h3 class="text-lg font-serif font-bold text-white mb-6 border-b border-gold/15 pb-4 flex items-center justify-between">
+                        <span>FP&A Core Variables Optimization</span>
+                        <span class="text-xs text-gold uppercase tracking-wider font-semibold">Simulation Engine</span>
+                    </h3>
+                    
+                    <div class="space-y-6 mb-8">
+                        <!-- Slider 1 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold uppercase text-slate-400 mb-2">
+                                <span>Target Annual Revenue</span>
+                                <span class="text-gold" id="revenue-val">$10,000,000</span>
+                            </div>
+                            <input type="range" id="revenue" min="1000000" max="50000000" step="500000" value="10000000" class="w-full accent-gold bg-obsidian-950 h-1.5 rounded-lg appearance-none cursor-pointer">
+                        </div>
+
+                        <!-- Slider 2 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold uppercase text-slate-400 mb-2">
+                                <span>Direct Cost Margin (COGS)</span>
+                                <span class="text-gold" id="cost-val">65%</span>
+                            </div>
+                            <input type="range" id="costs" min="30" max="85" step="1" value="65" class="w-full accent-gold bg-obsidian-950 h-1.5 rounded-lg appearance-none cursor-pointer">
+                        </div>
+
+                        <!-- Slider 3 -->
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold uppercase text-slate-400 mb-2">
+                                <span>Administrative & Tax Overhead</span>
+                                <span class="text-gold" id="tax-val">15%</span>
+                            </div>
+                            <input type="range" id="tax" min="5" max="30" step="1" value="15" class="w-full accent-gold bg-obsidian-950 h-1.5 rounded-lg appearance-none cursor-pointer">
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Diagnostic Report -->
+                    <div class="bg-obsidian-950 p-6 rounded-2xl border border-gold/15 space-y-4">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-800 pb-2 flex items-center gap-2">
+                            <i class="fas fa-file-invoice text-gold"></i> Executive Advisor Diagnostic Report
+                        </h4>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <span class="text-[10px] text-slate-500 uppercase tracking-widest block">Projected EBITDA</span>
+                                <span class="text-lg font-serif font-bold text-white" id="ebitda">$2,000,000</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-slate-500 uppercase tracking-widest block">Operational Cash Flow</span>
+                                <span class="text-lg font-serif font-bold text-gold" id="cashflow">$1,600,000</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-800/80">
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-2">Strategic CA Recommendation</span>
+                            <div class="text-xs text-slate-300 font-light italic leading-relaxed" id="recommendation">
+                                "Strategic recommendation: Your operational margins are highly sound. Focus resources on cash receivable collection and optimize landed warehousing expenses to safeguard baseline cash generation."
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-20 z-10 relative border-t border-gray-100">
-             <div class="text-center mb-16">
-                <span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Career Journey</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Professional Experience</h2>
-            </div>
-
-            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
-
-                <!-- Experience Item 1 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                        <div class="w-3 h-3 bg-accent rounded-full"></div>
-                    </div>
-                    
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <div class="flex flex-col mb-3">
-                            <span class="text-accent font-semibold text-sm">Jun 2023 - Aug 2024</span>
-                            <h3 class="font-bold text-lg text-primary">Financial Planning & Analysis Officer</h3>
-                            <span class="text-gray-500 text-sm">Panchakanya Group, Lalitpur</span>
-                        </div>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Reported to CFO. Managed FP&A for multiple manufacturing entities (Steels, Wires, Plastics, Concrete, etc.) and a service platform (Bhetayo Inc.).
-                        </p>
-                        <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-                            <li>Prepared financial statements, forecasts, and monthly profitability reviews.</li>
-                            <li>Conducted sales analysis (area/zone/depot wise) and supported sales schemes.</li>
-                            <li>Prepared budgets, calculated landed costs, and monitored compliance with Accounting Standards.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience Item 2 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                         <div class="w-3 h-3 bg-gray-300 group-hover:bg-accent transition-colors rounded-full"></div>
-                    </div>
-                    
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <div class="flex flex-col mb-3">
-                            <span class="text-accent font-semibold text-sm">Nov 2018 - Feb 2020</span>
-                            <h3 class="font-bold text-lg text-primary">Audit Associate</h3>
-                            <span class="text-gray-500 text-sm">PKF TR Upadhya & Co., Kathmandu</span>
-                        </div>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Handled diverse audit assignments acting as Team Member or Team Leader for various prominent clients.
-                        </p>
-                        <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-                            <li>Conducted Stock Audits (Asian Paints), Internal Audits (Ujyalo Foundation).</li>
-                            <li>Led investigations (Unicef) and Statutory & Tax Audits (APCA Nepal, Sama Printers, Times Digital).</li>
-                            <li>Participated in NFRS Implementation gap analysis for SEBON.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience Item 3 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-                         <div class="w-3 h-3 bg-gray-300 group-hover:bg-accent transition-colors rounded-full"></div>
-                    </div>
-                    
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <div class="flex flex-col mb-3">
-                            <span class="text-accent font-semibold text-sm">May 2013 - May 2016</span>
-                            <h3 class="font-bold text-lg text-primary">Articled Assistant</h3>
-                            <span class="text-gray-500 text-sm">N. Kochhar & Co., New Delhi</span>
-                        </div>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                            Completed 3 years of rigorous internship in India, handling various audit assignments.
-                        </p>
-                         <ul class="text-sm text-gray-600 list-disc list-inside space-y-1">
-                            <li>Post Payment & Payroll Audit (DLF Group via KPMG).</li>
-                            <li>Marketing & Internal Audits (Hero Motocorp, Valvoline Cummins).</li>
-                            <li>Quarterly Audits for manufacturing plants (Shivam Autotech, Satyam Auto).</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="py-20 z-10 relative border-t border-gray-100">
+    <!-- Elite Achievements Section -->
+    <section class="py-24 bg-gradient-to-t from-obsidian-950 via-obsidian-900 to-obsidian-950 border-t border-gold/15 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Academics</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Education</h2>
+                <span class="text-gold font-bold tracking-widest uppercase text-xs mb-3 block">Corporate Catalyst</span>
+                <h2 class="text-3xl sm:text-5xl font-serif text-white">Leadership & Track Record</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Award 1 -->
+                <div class="luxury-glass p-6 rounded-2xl border border-gold/10 flex items-start gap-4 hover:border-gold/30 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                        <i class="fas fa-trophy text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-serif font-semibold text-sm">Corporate Championship</h4>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">Conferred the prestigious <strong class="text-white">"Sports Day Championship Award"</strong> for multi-disciplinary excellence.</p>
+                    </div>
+                </div>
+
+                <!-- Award 2 -->
+                <div class="luxury-glass p-6 rounded-2xl border border-gold/10 flex items-start gap-4 hover:border-gold/30 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                        <i class="fas fa-users-cog text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-serif font-semibold text-sm">Organized Leadership</h4>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">Recognized for administrative contributions as the formal <strong class="text-white">"Leader of Hostel"</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- Award 3 -->
+                <div class="luxury-glass p-6 rounded-2xl border border-gold/10 flex items-start gap-4 hover:border-gold/30 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                        <i class="fas fa-award text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-serif font-semibold text-sm">Team Facilitation</h4>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">Awarded as the <strong class="text-white">"Best Manager"</strong> in the highly competitive regional basketball setup.</p>
+                    </div>
+                </div>
+
+                <!-- Award 4 -->
+                <div class="luxury-glass p-6 rounded-2xl border border-gold/10 flex items-start gap-4 hover:border-gold/30 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                        <i class="fas fa-chess-knight text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-serif font-semibold text-sm">Tactical Governance</h4>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">Secured <strong class="text-white">1st Position</strong> in the Regional Chess Tournament, proving structured analytical capability.</p>
+                    </div>
+                </div>
+
+                <!-- Award 5 -->
+                <div class="luxury-glass p-6 rounded-2xl border border-gold/10 flex items-start gap-4 hover:border-gold/30 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                        <i class="fas fa-bullseye text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-serif font-semibold text-sm">Team Performance</h4>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">Clinched <strong class="text-white">1st Position & Man of the Match</strong> during the Kanchanjunga Cricket Cup.</p>
+                    </div>
+                </div>
+
+                <!-- Award 6 -->
+                <div class="luxury-glass p-6 rounded-2xl border border-gold/10 flex items-start gap-4 hover:border-gold/30 transition-all duration-300">
+                    <div class="w-10 h-10 rounded-full bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                        <i class="fas fa-running text-sm"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-serif font-semibold text-sm">Athletic Dynamism</h4>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">Achieved <strong class="text-white">1st Position</strong> in multiple physical athletic events (60m, 100m, Shot Put).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestigious Executive Footer -->
+    <footer class="bg-obsidian-950 py-16 border-t border-gold/15 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 rounded bg-gold text-obsidian-950 flex items-center justify-center font-serif font-extrabold text-lg">
+                        NP
+                    </div>
+                    <div>
+                        <span class="font-serif font-bold text-lg text-white block">Nayan Pradhananga</span>
+                        <span class="text-[10px] tracking-widest text-gold uppercase font-semibold">Chartered Accountant</span>
+                    </div>
+                </div>
+                
+                <p class="text-slate-500 text-xs font-medium">
+                    &copy; 2026 CA Nayan Pradhananga. Formulated under strict corporate standards.
+                </p>
+                
+                <div class="flex items-center gap-6">
+                    <a href="mailto:navanpng@gmail.com" class="text-slate-400 hover:text-gold transition-colors font-semibold text-xs uppercase tracking-wider flex items-center gap-2">
+                        <i class="fas fa-envelope text-gold"></i> Contact
+                    </a>
+                    <a href="https://www.linkedin.com/in/nayan-pradhananga-606487a1/" target="_blank" class="text-slate-400 hover:text-gold transition-colors font-semibold text-xs uppercase tracking-wider flex items-center gap-2">
+                        <i class="fab fa-linkedin text-gold"></i> LinkedIn
+                    </a>
+                </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- CA -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
-                    <div class="w-14 h-14 bg-blue-50 text-accent rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-award text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-2">Chartered Accountancy</h3>
-                    <p class="text-gray-500 font-medium mb-3">ICAI</p>
-                    <span class="mt-auto text-xs font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-full">2026</span>
-                </div>
-
-                <!-- Masters (MPA) -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
-                    <div class="w-14 h-14 bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-graduation-cap text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-2">Master of Public Administration</h3>
-                    <p class="text-gray-500 font-medium mb-3">Tribhuvan University (TU)</p>
-                    <span class="mt-auto text-xs font-semibold text-gray-600 bg-gray-100 px-3 py-1 rounded-full">2025</span>
-                </div>
-
-                <!-- LLB -->
-                <div class="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
-                    <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-balance-scale text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-2">Bachelor of Laws (LLB)</h3>
-                    <p class="text-gray-500 font-medium mb-3">Tribhuvan University (TU)</p>
-                    <span class="mt-auto text-xs font-semibold text-accent bg-blue-100 px-3 py-1 rounded-full">Running</span>
-                </div>
+            <div class="border-t border-gold/5 pt-8 text-center">
+                <p class="text-[10px] text-slate-600 max-w-xl mx-auto leading-relaxed">
+                    Declaration: This digital platform complies with standard corporate governance and the professional ethics prescribed under chartered accountancy guidelines. All records correspond to historical financial consulting and audit achievements.
+                </p>
             </div>
-        </section>
+        </div>
+    </footer>
 
-        <!-- Achievements Section -->
-        <section id="achievements" class="py-20 z-10 relative border-t border-gray-100">
-             <div class="text-center mb-16">
-                <span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Highlights</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Achievements</h2>
-            </div>
+    <script>
+        // Core interactive FP&A variables
+        const revSlider = document.getElementById('revenue');
+        const costSlider = document.getElementById('costs');
+        const taxSlider = document.getElementById('tax');
 
-            <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 max-w-4xl mx-auto">
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <li class="flex items-start gap-4">
-                        <div class="mt-1 w-8 h-8 rounded-full bg-yellow-50 flex items-center justify-center shrink-0">
-                            <i class="fas fa-trophy text-yellow-500 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 leading-relaxed">Awarded "Sports Day Championship Award".</span>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="mt-1 w-8 h-8 rounded-full bg-yellow-50 flex items-center justify-center shrink-0">
-                            <i class="fas fa-medal text-yellow-500 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 leading-relaxed">Awarded for contribution as the "Leader of Hostel".</span>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="mt-1 w-8 h-8 rounded-full bg-yellow-50 flex items-center justify-center shrink-0">
-                            <i class="fas fa-star text-yellow-500 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 leading-relaxed">Awarded as the "Best manager" in basketball tournament.</span>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="mt-1 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center shrink-0">
-                            <i class="fas fa-chess-knight text-gray-600 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 leading-relaxed">1st position in Intra-Hostel Chess Competition & Inter House Football Tournament.</span>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="mt-1 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center shrink-0">
-                            <i class="fas fa-baseball-ball text-gray-600 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 leading-relaxed">1st position and man of the match in Kanchanjunga Cricket Tournament.</span>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <div class="mt-1 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center shrink-0">
-                            <i class="fas fa-running text-gray-600 text-sm"></i>
-                        </div>
-                        <span class="text-gray-700 leading-relaxed">1st position in 60m, 100m, Shot Put and 4*100m relay race.</span>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        const revValEl = document.getElementById('revenue-val');
+        const costValEl = document.getElementById('cost-val');
+        const taxValEl = document.getElementById('tax-val');
 
-        <!-- Footer -->
-        <footer class="mt-12 py-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between text-gray-500 text-sm z-10 relative">
-            <p>&copy; 2026 Nayan Pradhananga. All rights reserved.</p>
-            <div class="flex items-center gap-4 mt-4 md:mt-0">
-                <a href="mailto:navanpng@gmail.com" class="hover:text-primary transition-colors">navanpng@gmail.com</a>
-                <span>&bull;</span>
-                <a href="https://www.linkedin.com/in/nayan-pradhananga-606487a1/" target="_blank" class="hover:text-primary transition-colors">LinkedIn Profile</a>
-            </div>
-        </footer>
+        const ebitdaEl = document.getElementById('ebitda');
+        const cashflowEl = document.getElementById('cashflow');
+        const recEl = document.getElementById('recommendation');
 
-    </div>
+        // Formats numbers to currency style
+        function formatCurrency(amount) {
+            return '$' + amount.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        }
 
+        // Performance Simulator Logic
+        function updateAdvisorSimulator() {
+            const revenue = parseInt(revSlider.value);
+            const costPct = parseInt(costSlider.value) / 100;
+            const taxPct = parseInt(taxSlider.value) / 100;
+
+            // Calculations
+            const cogs = revenue * costPct;
+            const taxExp = revenue * taxPct;
+            const ebitda = revenue - cogs - taxExp;
+            const operatingCashflow = ebitda * 0.82; // Working capital delta simulation
+
+            // UI updates
+            revValEl.textContent = formatCurrency(revenue);
+            costValEl.textContent = costSlider.value + '%';
+            taxValEl.textContent = taxSlider.value + '%';
+
+            ebitdaEl.textContent = formatCurrency(ebitda);
+            cashflowEl.textContent = formatCurrency(operatingCashflow);
+
+            // Dynamically evaluate advisory recommendation text
+            let recommendationStr = '';
+            if (costPct > 0.70) {
+                recommendationStr = `"Advisor Assessment: Elevated COGS are putting downward pressure on your operating baseline. I recommend standardizing manufacturing supply chain procurement contracts and optimizing bulk inventory carry costs immediately."`;
+            } else if (taxPct > 0.20) {
+                recommendationStr = `"Advisor Assessment: Tax overheads and administrative friction are elevated. We should structure a corporate tax plan to utilize statutory allowances, write-offs, and compliance incentives to safeguard margins."`;
+            } else if (ebitda < 2000000) {
+                recommendationStr = `"Advisor Assessment: Projected EBITDAs are sensitive to operating fluctuations. I highly suggest reinforcing cash reserve allocations and reviewing variable cost-volume thresholds."`;
+            } else {
+                recommendationStr = `"Advisor Assessment: Excellent capital structure. With a highly optimized cost basis, the corporation should direct treasury assets into scalable operational expansions or high-yield capital reserves."`;
+            }
+
+            recEl.textContent = recommendationStr;
+        }
+
+        // Live Event listeners
+        revSlider.addEventListener('input', updateAdvisorSimulator);
+        costSlider.addEventListener('input', updateAdvisorSimulator);
+        taxSlider.addEventListener('input', updateAdvisorSimulator);
+
+        // Run initialization
+        updateAdvisorSimulator();
+    </script>
 </body>
 </html>
